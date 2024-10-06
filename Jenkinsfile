@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Docker Login') {
             steps {
@@ -8,23 +9,26 @@ pipeline {
                 }
             }
         }
+
         stage('Test Ansible') {
             steps {
                 sh "ansible --version"
             }
         }
-        stage('Build & push & run cont') {
+
+        stage('Build, Push & Run Container') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'KEY_FILE')]) {
                     sh '''
                         ansible-playbook -i inventory.txt ansible-playbook.yml --private-key=$KEY_FILE
                     '''
+                }
             }
         }
     }
 
-    post{ 
-        always{ 
+    post { 
+        always { 
             script { 
                 def emailNotification = load 'mail-notification.groovy'
                 emailNotification.sendEmailNotification()
