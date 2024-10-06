@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build, Push & Run Container') {
             steps {
-                ansiblePlaybook credentialsId: 'ec2_key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.txt', playbook: 'ansible-playbook.yml'
+                sh "ansible-playbook -i inventory.ini ansible-playbook.yml"
             }
         }
     }
