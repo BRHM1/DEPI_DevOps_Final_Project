@@ -1,2 +1,2 @@
 [my_ec2]
-34.229.12.135
+34.229.12.135 ansible_user=ubuntu
