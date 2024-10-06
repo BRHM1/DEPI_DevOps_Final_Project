@@ -9,8 +9,3 @@ variable "ami" {
   type    = string 
   default = "ami-0866a3c8686eaeeba"
 }
-
-# Create terraform.tfvars and add your public ssh key in 
-variable "public_key" {
-  description = "ssh public key"
-}
