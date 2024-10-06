@@ -1,8 +1,6 @@
 ---
 - name: "Build with ansible"
   hosts: my_ec2
-  remote_user: ubuntu  # Replace with the correct username for your EC2 instance 
-  become: yes  # If you need to run tasks with sudo
   tasks:
     - name: remove image
       command: docker rmi muhammadelmansi/depi_final
