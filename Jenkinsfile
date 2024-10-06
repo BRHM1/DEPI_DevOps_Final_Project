@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build & push & run cont') {
             steps {
-                ansiblePlaybook credentialsId: 'key2', disableHostKeyChecking: true, installation: 'ansible', inventory: './inventory.txt', playbook: './ansible-playbook.yml'
+                ansiblePlaybook credentialsId: 'ec2_key', disableHostKeyChecking: true, installation: 'ansible', inventory: './inventory.txt', playbook: './ansible-playbook.yml'
             }
         }
     }
