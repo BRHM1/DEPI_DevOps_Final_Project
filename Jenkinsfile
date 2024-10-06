@@ -20,7 +20,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'KEY_FILE')]) {
                     sh '''
-                        ansible-playbook -i inventory.txt ansible-playbook.yml --private-key=$KEY_FILE
+                        ansible-playbook -i inventory.txt ansible-playbook.yml --private-key=$KEY_FILE -vvvv
                     '''
                 }
             }
