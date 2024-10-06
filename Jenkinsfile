@@ -15,7 +15,10 @@ pipeline {
         }
         stage('Build & push & run cont') {
             steps {
-                ansiblePlaybook credentialsId: 'ec2_key', disableHostKeyChecking: true, installation: 'ansible', inventory: './inventory.txt', playbook: './ansible-playbook.yml'
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'KEY_FILE')]) {
+                    sh '''
+                        ansible-playbook -i inventory.txt ansible-playbook.yml --private-key=$KEY_FILE
+                    '''
             }
         }
     }
