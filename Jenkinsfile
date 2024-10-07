@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build, Push & Run Container') {
             steps {
-                sh "ansible-playbook -i inventory.ini ansible-playbook.yml"
+                sh "ansible-playbook -i inventory.ini ansible-playbook.yml -vvv"
             }
         }
     }
