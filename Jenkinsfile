@@ -10,15 +10,11 @@ pipeline {
             }
         }
 
-        stage('Test Ansible') {
-            steps {
-                sh "ansible --version"
-            }
-        }
-
         stage('Build, Push & Run Container') {
             steps {
-                sh "ansible-playbook -i inventory.ini ansible-playbook.yml -vvv"
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
+                sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile'
+                }
             }
         }
     }
