@@ -61,6 +61,6 @@ resource "aws_key_pair" "UbuntuKP" {
   public_key = tls_private_key.pk.public_key_openssh
 
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.pk.private_key_pem}' > /home/elshwaihi/Desktop/Ansible/fn_proj/DEPI_DevOps_Final_Project/mykey.pem && chmod 400 /home/elshwaihi/Desktop/Ansible/fn_proj/DEPI_DevOps_Final_Project/mykey.pem"
+    command = "echo '${tls_private_key.pk.private_key_pem}' > ../mykey.pem && chmod 400 ../mykey.pem"
   }
 }
