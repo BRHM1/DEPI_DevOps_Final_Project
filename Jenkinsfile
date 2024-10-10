@@ -21,7 +21,7 @@ pipeline {
         stage('Build, Push & Run Container') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
-                sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile -e "target_dir=/home/ubuntu/depi_final"'
+                sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile'
                 }
             }
         }

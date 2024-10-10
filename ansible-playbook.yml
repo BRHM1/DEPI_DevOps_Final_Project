@@ -2,20 +2,34 @@
 - name: "Build with ansible"
   hosts: my_ec2
   tasks:
+    - name: Set the working directory
+      ansible.builtin.set_fact:
+        workdir: /home/ubuntu/depii
+
     - name: remove image
       command: docker rmi muhammadelmansi/depi_final
       ignore_errors: yes
+      args:
+        chdir: "{{ workdir }}"
 
     - name: build docker image using the Dockerfile
       command: docker build -t muhammadelmansi/depi_final .
+      args:
+        chdir: "{{ workdir }}"
 
     - name: Push Image to dockerhub
       command: docker push muhammadelmansi/depi_final
       ignore_errors: yes
+      args:
+        chdir: "{{ workdir }}"
       
     - name: stop and remove containers
       command: docker-compose down
       ignore_errors: yes
+      args:
+        chdir: "{{ workdir }}"
 
     - name: build docker-compose
-      command: docker-compose up -d 
+      command: docker-compose up -d
+      args:
+        chdir: "{{ workdir }}"
