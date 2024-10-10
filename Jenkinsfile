@@ -10,10 +10,18 @@ pipeline {
             }
         }
 
+        stage('Copy Files to EC2') {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
+                    sh 'scp -i $keyfile -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/depi_final ubuntu@54.226.36.77:/home/ubuntu'
+                }
+            }
+        }
+
         stage('Build, Push & Run Container') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
-                sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile'
+                sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile -e "target_dir=/home/ubuntu/depi_final"'
                 }
             }
         }
