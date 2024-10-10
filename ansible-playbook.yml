@@ -4,7 +4,7 @@
   tasks:
     - name: Set the working directory
       ansible.builtin.set_fact:
-        workdir: /home/ubuntu/depii
+        workdir: /home/ubuntu/depiii
 
     - name: remove image
       command: docker rmi muhammadelmansi/depi_final
