@@ -58,6 +58,7 @@ resource "tls_private_key" "pk" {
 # Create and download the keypair 
 resource "aws_key_pair" "UbuntuKP" {
   key_name = "mykey"
+  #public_key  = file("/var/lib/jenkins/.ssh/id_rsa.pub")
   public_key = tls_private_key.pk.public_key_openssh
 
   provisioner "local-exec" {
