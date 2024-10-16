@@ -4,8 +4,10 @@ pipeline {
     stages {
         stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
-                    sh 'echo $dockerpass | docker login -u $dockeruser --password-stdin'
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
+                        sh 'echo $dockerpass | docker login -u $dockeruser --password-stdin'
+                    }
                 }
             }
         }
