@@ -20,7 +20,7 @@ def sendEmailNotification() {
         emailext ( 
             subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}", 
             body: body, 
-            to: 'muhammad.elmansi7@gmail.com', 
+            to: 'melshwaihy@gmail.com', 
             from: 'jenkins@example.com', 
             replyTo: 'jenkins@example.com', 
             mimeType: 'text/html' ) 
