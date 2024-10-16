@@ -6,6 +6,10 @@
       ansible.builtin.set_fact:
         workdir: /home/ubuntu/depiii
 
+    - name: Log in to Docker Hub
+      shell: echo "{{ docker_password }}" | docker login -u "{{ docker_username }}" --password-stdin
+      #no_log: true  # Prevent logging sensitive information
+
     - name: remove image
       command: docker rmi elshwaihi/iattend-jen
       ignore_errors: yes
@@ -16,11 +20,6 @@
       command: docker build -t elshwaihi/iattend-jen .
       args:
         chdir: "{{ workdir }}"
-
-    - name: Log in to Docker Hub
-      shell: echo "{{ docker_password }}" | docker login -u "{{ docker_username }}" --password-stdin
-      #no_log: true  # Prevent logging sensitive information
-
 
     - name: Push Image to dockerhub
       command: docker push elshwaihi/iattend-jen
