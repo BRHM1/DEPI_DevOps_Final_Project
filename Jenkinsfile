@@ -5,7 +5,7 @@ pipeline {
         stage('Copy Files to EC2') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
-                    sh 'scp -i $keyfile -o StrictHostKeyChecking=no -r * /var/lib/jenkins/workspace/depiii ubuntu@54.80.91.90:/home/ubuntu'
+                    sh 'scp -i $keyfile -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/depiii ubuntu@54.80.91.90:/home/ubuntu'
                 }
             }
         }

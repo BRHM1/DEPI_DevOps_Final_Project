@@ -19,7 +19,7 @@
 
     - name: Log in to Docker Hub
       shell: echo "{{ docker_password }}" | docker login -u "{{ docker_username }}" --password-stdin
-      no_log: true  # Prevent logging sensitive information
+      #no_log: true  # Prevent logging sensitive information
 
 
     - name: Push Image to dockerhub
