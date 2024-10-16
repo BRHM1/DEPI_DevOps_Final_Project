@@ -14,7 +14,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
-                        sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile -e "docker_username=${docker_user} docker_password=${docker_pass}"'
+                        sh 'ansible-playbook -i inventory.ini ansible-playbook.yml --private-key=$keyfile -e "docker_username=${dockeruser} docker_password=${dockerpass}"'
                     }
                 }
             }
