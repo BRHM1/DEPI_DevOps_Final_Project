@@ -38,6 +38,7 @@ This ensures consistent deployments and eliminates manual processes.
    cd DEPI_DevOps_Final_Project
    ```
 
+
 2. **Configure SSH Access**:
 
    Add Jenkins' SSH public key to the EC2 instance's authorized_keys on main file from the terraform directory, This will ensure that ansible playbook will run without any  problems from jenkins pipeline.
