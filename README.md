@@ -80,7 +80,10 @@ This ensures consistent deployments and eliminates manual processes.
 
 ## Check our Application
 
-
+<div align="center">
+    <img src="https://drive.google.com/uc?id=1JnVDRT5oBzEtlS5XuwQaKzZ1Xd_XbU72" alt="Pipeline-Status" />
+    <br><br>
+</div>
 
 ### Build Status Notification
 
