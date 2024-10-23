@@ -51,23 +51,26 @@ This ensures consistent deployments and eliminates manual processes.
 
 #### Check Results
 #### Once terraform are applied, we will find: 
-- The inventory file are changed automatically with EC2 Instance IP
-- EC2 private key are generated automatically "mykey.pem" file
+- The inventory file is automatically updated with the EC2 instance IP
+- A private key (mykey.pem) is generated for secure EC2 access
 
-5. Add EC2 Instance IP on jenkins pipeline File
-6. Push this edits to Github Repo
+## Configure Jenkins Server
+1. Add EC2 Instance IP on jenkins pipeline File
+2. Push this changes to Github Repo
    
    ```bash
    git add .
    git commit -m "Update"
    git push -u origin main
-
-## Configure Jenkins Server
-1. Configure the gmail for tracking build status
-2. Add dockerhub Credentials
-3. Add private key "mykey.pem" file to Jenkins Credentials.
-4. Create a new pipeline and add project repo
-5. Build it!
+   
+3. Set Up Jenkins Server:
+   - Configure Gmail for tracking build status and notifications.
+   - Add Docker Hub credentials to Jenkins.
+   - Upload the private key (mykey.pem) to Jenkins as credentials.
+  
+4. Create a New Pipeline:
+   - Create a new Jenkins pipeline linked to the project repository.
+   - Build it!
 
 ## Check our Application
 
@@ -93,3 +96,7 @@ Destroy it!
 - **Mohamed Eid**
 - **Ahmed Ibrahim**
 - **Tarek Mohamed**
+
+##
+
+This README serves as a complete guide to understanding the project structure, setting up infrastructure, and configuring the Jenkins pipeline. It ensures a seamless deployment process with automation, notifications, and effective infrastructure management.
