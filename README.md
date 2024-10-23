@@ -74,6 +74,11 @@ This ensures consistent deployments and eliminates manual processes.
 
 ## Check our Application
 
+<div align="center">
+    <img src="https://drive.google.com/uc?id=1uo5_90w0DwGePamsWeUQekTFnjETc3qV" alt="Pipeline-Status" />
+    <br><br>
+</div>
+
 ### Build Status Notification
 
 <div align="center">
