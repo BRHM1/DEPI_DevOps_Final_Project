@@ -3,6 +3,11 @@
 ## Project Overview 
 This project aims to automate the deployment of a Dockerized Django application on an AWS EC2 instance using Jenkins, Ansible, and Docker. It follows these steps:
 
+<div align="center">
+    <img src="https://drive.google.com/uc?id=1uo5_90w0DwGePamsWeUQekTFnjETc3qV" alt="Pipeline-Status" />
+    <br><br>
+</div>
+
 1. Docker Compose Manages multi-container setups with MySQL and Django.
 2. Jenkins triggers the pipeline to copy files to an EC2 instance.
 3. Ansible builds Docker images, pushes them to Docker Hub, and runs containers using Docker Compose.
@@ -74,10 +79,7 @@ This ensures consistent deployments and eliminates manual processes.
 
 ## Check our Application
 
-<div align="center">
-    <img src="https://drive.google.com/uc?id=1uo5_90w0DwGePamsWeUQekTFnjETc3qV" alt="Pipeline-Status" />
-    <br><br>
-</div>
+
 
 ### Build Status Notification
 
