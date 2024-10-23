@@ -6,8 +6,8 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2_key', keyFileVariable: 'keyfile')]) {
                     sh '''
-                        ssh -i $keyfile -o StrictHostKeyChecking=no ubuntu@54.196.249.149 "rm -rf /home/ubuntu/depiii"
-                        scp -i $keyfile -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/depiii ubuntu@54.196.249.149:/home/ubuntu
+                        ssh -i $keyfile -o StrictHostKeyChecking=no ubuntu@98.83.160.147 "rm -rf /home/ubuntu/depiii"
+                        scp -i $keyfile -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/depiii ubuntu@98.83.160.147:/home/ubuntu
                     '''
                 }
             }
