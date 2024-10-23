@@ -33,18 +33,18 @@ This ensures consistent deployments and eliminates manual processes.
    cd DEPI_DevOps_Final_Project
    ```
 
-2. **Copy jenkins ssh public-key to authorized_keys on EC2 from main file in terraform Directory**:
+2. **Configure SSH Access**:
+
+   Add Jenkins' SSH public key to the EC2 instance's authorized_keys on main file from the terraform directory, This will ensure that ansible playbook will run without any  problems from jenkins pipeline.
    
-   This will ensure that ansible playbook will run without any problems from jenkins pipeline.
-   
-3. **Initialize Terraform**:
+4. **Initialize Terraform**:
    
    ```bash
    cd terraform
    terraform init
    ```
 
-4. **Apply the Configuration**:
+5. **Apply the Configuration**:
    
    ```bash
    terraform apply --auto-approve
@@ -88,7 +88,7 @@ Destroy it!
   terraform destroy
   ```
 
-## Team Members
+## Team Member
 
 - **Muhammad Elmansi**
 - **Mustafa Elshwaihy**
